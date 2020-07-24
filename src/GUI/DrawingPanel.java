@@ -10,9 +10,6 @@ import javax.swing.JPanel;
  * @author stefa
  */
 public class DrawingPanel extends JPanel{
-    final int PWIDTH;
-    final int PHEIGHT;
-    
     public DrawingPanel (int aheight, int awidth) {
         // Create panel
         super();
@@ -26,4 +23,7 @@ public class DrawingPanel extends JPanel{
         //setOpaque(false);
         setBackground(Color.BLACK); 
     }
+    
+    final int PWIDTH;
+    final int PHEIGHT;
 }

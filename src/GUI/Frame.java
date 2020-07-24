@@ -8,11 +8,6 @@ import javax.swing.JMenuBar;
  * @author stefa
  */
 public class Frame extends JFrame{
-    JMenuBar menuBar;
-    
-    final int FRAMEWIDTH = 1600;
-    final int FRAMEHEIGHT = 1000;
-
     public Frame () {
         // Create frame
         super("Drumhelper");
@@ -30,4 +25,9 @@ public class Frame extends JFrame{
         setJMenuBar(menuBar);
         setVisible(true);
     }
+    
+    JMenuBar menuBar;
+    
+    final int FRAMEWIDTH = 1600;
+    final int FRAMEHEIGHT = 1000;
 }
