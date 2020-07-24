@@ -23,10 +23,8 @@ public class DrawingPanel extends JPanel{
     
     public void run() {
         setSize(PWIDTH, PHEIGHT);
-        //setOpaque(false);
-        setBackground(Color.BLACK); 
+        setBackground(Color.BLACK);
         drawableObject = new ArrayDeque(40);
-        System.out.println("Read");
         currentSample = new ReadFile("example.txt");
     }
     

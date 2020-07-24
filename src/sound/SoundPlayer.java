@@ -12,6 +12,6 @@ public class SoundPlayer {
     
     public Sound getSound () {
         // TODO retreive sound
-        return new Sound();
+        return new Sound("test");
     }
 }

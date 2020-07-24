@@ -10,17 +10,50 @@ public final class ReadFile {
     
     public ReadFile (String file) {
         path = source + file;
+        
+        // Read text from the given file
+        String[] total;
         try {
-            String[] total = readLines();
+            total = readLines();
         }
         catch (IOException e) {
-            System.out.println("Error: " + e);
+            throw new NullPointerException("Error: " + e);
+        }
+        
+        // Obtain the data from the array of strings read from the textfile
+        bpm = Integer.parseInt(total[0]);
+        time = new int[2];
+        time[0] = Integer.parseInt(total[1].split(" ")[0]);
+        time[1] = Integer.parseInt(total[1].split(" ")[1]);
+        
+        // Obtain sounds from the files
+        int nSounds = Integer.parseInt(total[2]);
+        sounds = new Sound[nSounds];
+        for (int i  = 0; i < nSounds; i++) {
+            sounds[i] = new Sound(total[3 + i]);
+        }
+        
+        // Obtain generated lines
+        int currentIndex = 3 + nSounds;
+        int nLines = Integer.parseInt(total[currentIndex]);
+        generatedLines = new boolean[nLines][time[1]][nSounds];
+        for (int r  = 0; r < nLines; r++) {
+            String[] line = total[currentIndex + r + 1].split(",");
+            for (int c = 0; c < line.length; c++) { 
+                String[] notes = line[c].split(" ");
+                for (String note : notes) {
+                    generatedLines[r][c][Integer.parseInt(note)] = true;
+                }
+            }
         }
     }
     
+    // Read text from the given file
     public String[] readLines() throws IOException {
         FileReader fileToRead;
         BufferedReader textToRead;
+        
+        // Get the file
         try {
             fileToRead = new FileReader(path);
             textToRead = new BufferedReader(fileToRead);
@@ -29,13 +62,10 @@ public final class ReadFile {
             throw e;
         }
         
+        // Put each line as entry in a string
         try {
-            System.out.println("str: " + textToRead.readLine());
             String[] text = textToRead.lines().toArray(String[]::new);
             fileToRead.close();
-            for (String x : text) {
-                System.out.println(x);
-            }
             return text;
         }
         catch (IOException e) {
@@ -48,7 +78,7 @@ public final class ReadFile {
     
     public Sound[] sounds;
     
-    public int[][] generatedLines;
+    public boolean[][][] generatedLines;
     
     final String source = "C:/Users/stefa/Documents/Drumhelper/generated files/";
     String path;

@@ -18,9 +18,7 @@ public class SoundButton {
     
     public Graphics drawImage(Graphics g, int time) {
         g.setColor(color);
-
         g.fillOval(x - (originalTime - time) - SIZE * 2, y, SIZE, SIZE);
-        
         return g;
     }
     
