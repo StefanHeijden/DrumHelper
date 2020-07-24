@@ -22,7 +22,7 @@ public class DrawingPanel extends JPanel{
     }
     
     public void run() {
-        setSize(PHEIGHT, PWIDTH);
+        setSize(PWIDTH, PHEIGHT);
         //setOpaque(false);
         setBackground(Color.BLACK); 
     }

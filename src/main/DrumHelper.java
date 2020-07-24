@@ -7,13 +7,17 @@ import GUI.*;
  */
 public class DrumHelper {
 
+    static Frame frame;
+    static DrawingPanel drawingPanel;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Application app = new Application();
-        app.run();
+        frame = new Frame();
+        frame.run();
+        drawingPanel = new DrawingPanel(frame.getHeight(), frame.getWidth());
+        drawingPanel.run();
+        frame.add(drawingPanel);
     }
     
 }
