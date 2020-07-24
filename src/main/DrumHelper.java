@@ -19,7 +19,6 @@ public class DrumHelper {
         
         // Start song
         drawingPanel.play(true);
-        System.out.println("next!");
         drawingPanel.next();
     }
     

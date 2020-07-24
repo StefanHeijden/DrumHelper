@@ -1,0 +1,13 @@
+bpm: 120
+time: 4 / 4
+
+sounds:
+0 exampleSnare
+1 exampleKick
+2 exampleHighHat
+
+generated:
+1 2 | 2 | 0 2 | 2
+1 2 | 1 2 | 0 2 | 2
+1 2 | 2 | 0 2 | 2
+1 2 | 1 2 | 0 2 | 2

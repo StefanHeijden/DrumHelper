@@ -2,7 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Stack;
+import java.util.ArrayDeque;
 import javax.swing.JPanel;
 
 
@@ -24,7 +24,8 @@ public class DrawingPanel extends JPanel{
         setSize(PWIDTH, PHEIGHT);
         //setOpaque(false);
         setBackground(Color.BLACK); 
-        drawableObject = new Stack();
+        drawableObject = new ArrayDeque(40);
+        // allButtons = []; TO DO initialize buttons by reading text file
     }
     
     public void play(boolean play) {
@@ -43,19 +44,38 @@ public class DrawingPanel extends JPanel{
         
         
         if (playing) {
-            System.out.println("hello!");
             // Paint Sound Buttons
             for (SoundButton b : drawableObject) {
-                System.out.println("o");
                 g = b.drawImage(g, roundedTime);
             }
         }
     }
     
+    // Determines the next state of the panel
     public void next() {
-        // Play sound of notes
-        drawableObject.push(new SoundButton(Color.WHITE, 30, (int) time));
-        // Increase time
+        int roundedTime = (int) time;
+        
+        // Check whether the current queue contains any SoundButton that cannot
+        // be drawn anymore
+        while(true) {
+            SoundButton inspect = drawableObject.peek();
+            if (inspect == null || inspect.drawable(roundedTime, PWIDTH)) {
+                break;
+            }
+            drawableObject.remove();
+        }
+        
+        // Add new SoundButtons
+        while (currentIndex < allButtons.length) {
+            // Check whether the next button is drawable
+            if (!allButtons[currentIndex].drawable(roundedTime, PWIDTH)) {
+                break;
+            }
+            // if it is drawable add it to the queue
+            drawableObject.add(allButtons[currentIndex]);
+            currentIndex++;
+        }
+        
         repaint();
         time = time + incrementTimer;
     }
@@ -73,8 +93,9 @@ public class DrawingPanel extends JPanel{
     double incrementTimer = 1.0;
     
     // Current stack of object to be drawn
-    Stack<SoundButton> drawableObject;
+    ArrayDeque<SoundButton> drawableObject;
     
     // Keep track of current index of the array to avoid unneeded checking
+    SoundButton[] allButtons;
     int currentIndex = 0;
 }

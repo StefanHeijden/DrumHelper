@@ -9,19 +9,24 @@ import java.awt.Graphics;
  * The color and placement indicate what kind of note has to be played
  */
 public class SoundButton {
-    public SoundButton (Color col, int place, int startTime) {
+    public SoundButton (Color col, int place, int startTime, int endPlacement) {
         color = col;
         originalTime = startTime;
         y = place;
-        // TODO create button with color col
+        x = endPlacement;
     }
     
     public Graphics drawImage(Graphics g, int time) {
         g.setColor(color);
 
-        g.fillOval(400 - (originalTime - time), y, SIZE, SIZE);
+        g.fillOval(x - (originalTime - time) - SIZE * 2, y, SIZE, SIZE);
         
         return g;
+    }
+    
+    public boolean drawable(int time, int width) {
+        return x - (originalTime - time) - SIZE * 2 > 0 && 
+                x - (originalTime - time) - SIZE * 2 < width;
     }
     
     int y;
