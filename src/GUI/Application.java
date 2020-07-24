@@ -11,7 +11,8 @@ public class Application {
     public Application () {
         frame = new Frame();
         frame.run();
-        drawingPanel = new DrawingPanel();
+        drawingPanel = new DrawingPanel(frame.getHeight(), frame.getWidth());
+        drawingPanel.run();
         frame.add(drawingPanel);
     }
     
