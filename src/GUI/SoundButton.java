@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import sound.Sound;
 
 /**
  *
@@ -9,7 +10,9 @@ import java.awt.Graphics;
  * The color and placement indicate what kind of note has to be played
  */
 public class SoundButton {
-    public SoundButton (Color col, int place, int startTime, int endPlacement) {
+    public SoundButton (Color col, int place, int startTime, int endPlacement, 
+            Sound sound) {
+        this.sound = sound;
         color = col;
         originalTime = startTime;
         y = place;
@@ -27,9 +30,14 @@ public class SoundButton {
                 x - (originalTime - time) - SIZE * 2 < width;
     }
     
+    public void play() {
+        sound.play();
+    }
+    
     int y;
     int x;
     final int SIZE = 20;
     Color color;
     int originalTime;
+    Sound sound;
 }
