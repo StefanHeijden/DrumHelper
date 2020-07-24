@@ -22,6 +22,10 @@ public class DrawingPanel extends JPanel{
         setSize(PWIDTH, PHEIGHT);
         //setOpaque(false);
         setBackground(Color.BLACK); 
+        
+        // TODO Add GRID
+        
+        // Add text for notes
     }
     
     final int PWIDTH;

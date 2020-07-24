@@ -10,13 +10,13 @@ public class DrumHelper {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        frame = new Frame();
+        frame = new MainFrame();
         frame.run();
         drawingPanel = new DrawingPanel(frame.getHeight(), frame.getWidth());
         drawingPanel.run();
         frame.add(drawingPanel);
     }
     
-    static Frame frame;
+    static MainFrame frame;
     static DrawingPanel drawingPanel;
 }
