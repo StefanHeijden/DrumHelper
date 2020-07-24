@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayDeque;
 import javax.swing.JPanel;
+import logic.ReadFile;
 
 
 
@@ -25,7 +26,8 @@ public class DrawingPanel extends JPanel{
         //setOpaque(false);
         setBackground(Color.BLACK); 
         drawableObject = new ArrayDeque(40);
-        // allButtons = []; TO DO initialize buttons by reading text file
+        System.out.println("Read");
+        currentSample = new ReadFile("example.txt");
     }
     
     public void play(boolean play) {
@@ -66,7 +68,7 @@ public class DrawingPanel extends JPanel{
         }
         
         // Add new SoundButtons
-        while (currentIndex < allButtons.length) {
+        while (allButtons != null && currentIndex < allButtons.length) {
             // Check whether the next button is drawable
             if (!allButtons[currentIndex].drawable(roundedTime, PWIDTH)) {
                 break;
@@ -98,4 +100,6 @@ public class DrawingPanel extends JPanel{
     // Keep track of current index of the array to avoid unneeded checking
     SoundButton[] allButtons;
     int currentIndex = 0;
+    
+    ReadFile currentSample;
 }
