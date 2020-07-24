@@ -1,12 +1,12 @@
 bpm: 120
 time: 4 / 4
 
-sounds:
+sounds: 3
 0 exampleSnare
 1 exampleKick
 2 exampleHighHat
 
-generated:
+generated: 4
 1 2 | 2 | 0 2 | 2
 1 2 | 1 2 | 0 2 | 2
 1 2 | 2 | 0 2 | 2

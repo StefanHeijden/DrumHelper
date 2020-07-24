@@ -1,15 +1,19 @@
 package logic;
 
-/**
- *
- * @author stefa
- */
+import sound.Sound;
+
 public class ReadFile {
     
     public ReadFile (String file) {
         
     }
     
-    int numberOfSounds;
+    public int bpm;
+    public int[] time;
+    
+    public Sound[] sounds;
+    
+    public int[][] generatedLines;
+    
     final String source = "./../../generated files/";
 }
