@@ -25,7 +25,7 @@ public class DrawingPanel extends JPanel{
         setSize(PWIDTH, PHEIGHT);
         setBackground(Color.BLACK);
         drawableObject = new ArrayDeque(40);
-        currentSample = new ReadFile("example.txt");
+        currentSample = new ReadFile("example.txt", "C:/Users/stefa/Documents/Drumhelper/sounds/");
     }
     
     public void play(boolean play) {

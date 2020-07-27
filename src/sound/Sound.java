@@ -11,13 +11,13 @@ import javax.sound.sampled.*;
 public class Sound {
     public Sound(String soundFile) {
         try {
-            source = source + soundFile;
-            File file = new File(source);
+            fileName = soundFile;
+            File file = new File(source + fileName);
             clip = AudioSystem.getClip();
             // getAudioInputStream() also accepts a File or InputStream
             ais = AudioSystem.getAudioInputStream(file);
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
-            System.out.println("failed to retreive sound: " + source);
+            System.out.println("failed to retreive sound: " + source + fileName);
         }
     }
     
@@ -25,11 +25,12 @@ public class Sound {
         try {
             clip.open(ais);
         } catch (IOException | LineUnavailableException e) {
-            System.out.println("failed to play sound: " + source);
+            System.out.println("failed to play sound: " + source + fileName);
         }
     }
     
     Clip clip;
     AudioInputStream ais;
     String source = "C:/Users/stefa/Documents/Drumhelper/sounds/";
+    public String fileName;
 }

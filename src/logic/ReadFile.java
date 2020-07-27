@@ -8,9 +8,9 @@ import sound.Sound;
 
 public final class ReadFile {
     
-    public ReadFile (String file) {
+    public ReadFile (String file, String source) {
         path = source + file;
-        
+        System.out.println(source + file);
         // Read text from the given file
         String[] total;
         try {

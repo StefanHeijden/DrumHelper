@@ -1,0 +1,6 @@
+120
+4 4
+1
+exampleSnare.WAV
+1
+1,1,1,1

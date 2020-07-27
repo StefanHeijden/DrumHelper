@@ -1,0 +1,11 @@
+120
+4 4
+3
+exampleSnare
+exampleKick
+exampleHighHat
+4
+1 2,2,0 2,2
+1 2,1 2,0 2,2
+1 2,2,0 2,2
+1 2,1 2,0 2,2
