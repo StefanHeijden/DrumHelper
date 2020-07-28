@@ -39,7 +39,7 @@ public final class ReadFile {
         generatedLines = new boolean[nLines][time[1]][nSounds];
         for (int r  = 0; r < nLines; r++) {
             String[] line = total[currentIndex + r + 1].split(",");
-            for (int c = 0; c < line.length; c++) { 
+            for (int c = 0; c < line.length; c++) {
                 String[] notes = line[c].split(" ");
                 for (String note : notes) {
                     generatedLines[r][c][Integer.parseInt(note)] = true;

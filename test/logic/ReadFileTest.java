@@ -25,7 +25,7 @@ public class ReadFileTest {
     
     public void testReadFile1() {
         instance = new ReadFile("test1.txt", "C:/Users/stefa/Documents/Drumhelper/testFiles/");
-        String[] expSounds = {"exampleSnare.wav"};
+        String[] expSounds = {"exampleSnare.WAV"};
         boolean[][][] expLines = {{{true}, {true}, {true}, {true}}};
         
         // Test variables
@@ -45,9 +45,8 @@ public class ReadFileTest {
         for (int i = 0; i < instance.sounds.length; i++) {
             sounds[i] = instance.sounds[i].fileName;
         }
-        
         if (!Arrays.equals(expSounds, sounds)) {
-            fail("Lines are not equal");
+            fail("Sounds are not equal");
         }
     }
 
